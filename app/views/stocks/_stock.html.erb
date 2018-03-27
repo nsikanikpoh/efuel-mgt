@@ -1,0 +1,32 @@
+     <div class="container-fluid">
+  
+
+
+<%if stock%> 
+
+
+  <tbody>
+    
+      <tr>
+        <td><%= stock.description %></td>
+       
+        <td><%= stock.tank_capacity %></td>
+      
+       
+        <td><%= stock.cost_per_ltr %></td>
+        <td><%= stock.selling_price_per_ltr %></td>
+        <td><%= link_to 'Show', stock, class:"btn btn-success" %></td>
+        <td><%= link_to 'Edit', edit_stock_path(stock), class:"btn btn-success" %></td>
+        <td><%= link_to 'Destroy', [stock.product, stock], method: :delete, data: {confirm: "Are you sure you want to delete this stock..? its going affect your system reports and projections."}, class:"btn btn-danger" %></td>
+      	<td><%= time_ago_in_words(stock.created_at)%> ago	</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+	
+	</div>
+	
+
+	

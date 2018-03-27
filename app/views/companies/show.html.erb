@@ -1,0 +1,42 @@
+<% provide( :title, @company.name) %>
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+  <div class="x_panel" style="">
+      <div class="x_title">
+<h1>
+  
+   <%= @company.name.capitalize %>
+</h1>
+</div>
+
+<p>
+  <strong>Address:</strong>
+  <%= @company.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @company.phone %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @company.state %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @company.city %>
+</p>
+<p>
+  <strong>Owner:</strong>
+  <%= @company.companyadmin.full_name%> <%= link_to "Goto Profile", companyadmin_path(@company.companyadmin), class:"btn btn-success"%>
+</p>
+
+<%= link_to 'Edit', edit_company_path(@company), class:"btn btn-success" %> |
+<%= link_to 'Dashboard', dashboard_path, class:"btn btn-info" %> | <%= link_to "Back", :back, class:"btn btn-primary"%>
+
+</div>
+</div>
+</div>

@@ -1,0 +1,79 @@
+<div class = "container-fluid">
+<%= form_for([@pump, @pump.stocks.build]) do |form| %>
+  
+
+
+  <div class="row">
+  <div class="col-md-6 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>New Stock Form <small>stock entry for <%=@pump.name%> </small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+          
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br />
+        <form class="form-horizontal form-label-left input_mask">
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+          <%= form.text_area :description, id: :stock_description, class:"form-control has-feedback-left", id:"inputSuccess2", placeholder:"Stock description", type:"text", required:"required"  %>
+           
+            <span class="fa fa-note form-control-feedback left" aria-hidden="true">Info</span>
+          </div>
+
+   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+
+    <%= form.number_field :tank_capacity, id: :stock_tank_capacity,  class:"form-control has-feedback-left", placeholder:"Capacity", type:"number", required:"required" %>
+  <span class="fa fa- form-control-feedback left" aria-hidden="true">Qty</span>
+          </div>
+
+
+   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+     <%= form.text_field :supplier, id: :stock_supplier,  class:"form-control has-feedback-left", placeholder:"Supplier", type:"text", required:"required"  %>
+    
+    
+  <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+             <%= form.label :cost_per_ltr,"Cost Price Per Litre" %>
+                 <%= form.text_field :cost_per_ltr, id: :stock_cost_per_ltr , class:"form-control", placeholder:"Cost per ltr", type:"number", required:"required"   %>
+              
+
+            <span class="fa fa- form-control-feedback right" aria-hidden="true">N</span>
+          </div>
+
+<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+             <%= form.label :selling_price_per_ltr,"Selling Price Per Litre" %>
+                  <%= form.text_field :selling_price_per_ltr, id: :stock_selling_price_per_ltr , class:"form-control", placeholder:"Selling price", type:"number", required:"required"   %>
+                        
+            <span class="fa fa- form-control-feedback right" aria-hidden="true">N</span>
+          </div>
+         
+          <div class="form-group">
+            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+               <%= form.submit "Submit", class:"btn btn-info"%>   <%= link_to "Cancel", pump_path(@pump),class:"btn btn-danger"%>
+
+
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+<% end %>
+
+
+
+
+
+
+
+

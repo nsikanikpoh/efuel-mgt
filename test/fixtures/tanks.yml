@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  station: one
+  product: one
+  total_capacity: 1
+  used_capacity: 1
+  free_capacity: 1
+
+two:
+  station: two
+  product: two
+  total_capacity: 1
+  used_capacity: 1
+  free_capacity: 1

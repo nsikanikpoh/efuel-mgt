@@ -1,0 +1,9 @@
+<%if current_admin.companyadmin?%>
+    <%= render partial: 'layouts/shared/companyadmin' %>
+<%elsif current_admin.zonalmanager?%>
+
+<%= render partial: 'layouts/shared/zonalmanager' %>
+
+<%elsif current_admin.manager?%>
+<%= render partial: 'layouts/shared/manager' %>
+<%end%>

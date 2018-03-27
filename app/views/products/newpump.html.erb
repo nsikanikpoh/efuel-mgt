@@ -1,0 +1,34 @@
+<% provide( :title, @station.name+" New Stock Entry - "+@product.name) %>
+<div class="row">
+  <div class="col-md-12">
+
+  <div class="x_panel" style="">
+      <div class="x_title">
+<h3> New Pump</h3>
+
+
+
+<p>
+  <strong>Branch Station:</strong>
+  <%= @product.station.name %>
+</p>
+
+<p>
+
+  <strong>Product Category:</strong>
+  <%= @product.name %>
+</p>
+
+
+ <br>
+ <br>
+ <br>
+      <%= render "pumps/form"%>
+
+
+
+</div>      
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,686 @@
+<% provide( :title, "Dashboard") %>
+<div class="row">
+  <div class="col-md-12">
+  <div class="x_panel" style="">
+      <div class="x_title">
+<h3>
+  
+  Zonal Manager Dashboard
+</h3>
+</div>
+<%if @zonesales_reports.any?%>
+<div class="row">
+<div class="col-xs-6">
+    <h5>Sales Report | Products Line Grapgh</h5>
+    <%= line_chart @zonesales_reports.group_by_day(:product_id).count %>
+
+  </div>
+
+
+  <div class="col-xs-6">
+    <h5>Visualization | Anormally in Reports</h5>
+    <h5>This depicts that amount brought forward from each sales reports correlates negatively with estimated amounts(money shortage). If the points depicts how many reports have this patterns</h5>
+    <%= line_chart @zonesales_reports.group_by_day(:remark).count, discrete: true %>
+
+  </div>
+
+  <div class="col-xs-6">
+    <h5>Sales Report By Remark Percentage</h5>
+    <%= pie_chart @zonesales_reports.group_by_day(:remark).count%>
+  </div>
+
+
+  <div class="col-xs-6">
+    <h5>Area Chart</h5>
+    <%= area_chart @zonesales_reports.group_by_day(:sold_capacity).count, discrete: true %>
+  </div>
+
+
+  <div class="col-xs-6">
+    <h5>Column Chart</h5>
+    <%= column_chart @zonesales_reports.group_by_day(:sold_capacity).count, discrete: true %>
+  </div>
+  <div class="col-xs-6">
+    <h5>Bar Chart</h5>
+    <%= bar_chart @zonesales_reports.group_by_day(:sold_capacity).count, discrete: true %>
+  </div>
+
+<%else%>
+<center><p class="lead">We are sorry, we could't project visualizations at the moment. Should be you have no Reports Entered yet.</p></center> 
+<%end%>
+
+
+
+<div class="clearfix"></div>
+
+<div class="">
+  <div class="col-md-9 col-sm-9 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2><i class="fa fa-bars"></i>Zone Report Pane <small>sort Checkins</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+          
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+
+
+        <div class="" role="tabpanel" data-example-id="togglable-tabs">
+          <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Today Reports</a>
+            </li>
+            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Yesterday Reports</a>
+            </li>
+            <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">This Week Reports</a>
+            </li>
+
+          </ul>
+          <div id="myTabContent" class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+
+
+<%if @zonetodayreports.any?%>
+
+<p class="lead">Today Reports</p>
+
+<table id="datatable" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      
+      <th>Product</th>
+    
+      <th>Sold capacity</th>
+      <th>Estimate amount</th>
+      <th>Amount brought</th>
+      <th>Remark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zonetodayreports.each do |sales_report| %>
+      <tr>
+       
+        <td><%= sales_report.product.name %></td>
+       
+        <td><%= sales_report.sold_capacity %></td>
+        <td><%= sales_report.estimate_amount %></td>
+        <td><%= sales_report.amount_brought %></td>
+        <td><%= sales_report.remark %></td>
+        <td><%= link_to 'Show', sales_report, class:"btn btn-success"%></td>
+       
+      </tr>
+
+    <% end %>
+
+
+  </tbody>
+
+</table>
+
+
+<table id="datatable" class="table table-striped table-bordered">
+  <tbody>
+
+
+ <tr><td> <p class="lead"><strong><center>Total Amount Brought: <%= zonetodaytotal_amount %> |  Total Estimated Amount: <%= zonetodayestimate_amount %></center></strong></p><td></tr>
+
+  </tbody>
+
+</table>
+<%= will_paginate @zonetodayreports, :renderer => BootstrapPagination::Rails %>
+<%else%>
+No Reports in this category
+<%end%>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+             
+<%if @zoneyesterdayreports.any?%>
+
+<p class="lead">Yesterday Reports</p>
+
+<table id="datatable" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      
+      <th>Product</th>
+    
+      <th>Sold capacity</th>
+      <th>Estimate amount</th>
+      <th>Amount brought</th>
+      <th>Remark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zoneyesterdayreports.each do |sales_report| %>
+      <tr>
+       
+        <td><%= sales_report.product.name %></td>
+       
+        <td><%= sales_report.sold_capacity %></td>
+        <td><%= sales_report.estimate_amount %></td>
+        <td><%= sales_report.amount_brought %></td>
+        <td><%= sales_report.remark %></td>
+        <td><%= link_to 'Show', sales_report, class:"btn btn-success"%></td>
+       
+      </tr>
+
+    <% end %>
+
+
+  </tbody>
+
+</table>
+
+
+<table id="datatable" class="table table-striped table-bordered">
+  <tbody>
+
+
+ <tr><td> <p class="lead"><strong><center>Total Amount Brought: <%= zoneyesterdaytotal_amount %> |  Total Estimated Amount: <%= zoneyesterdayestimate_amount %></center></strong></p><td></tr>
+
+  </tbody>
+
+</table>
+<%= will_paginate @zoneyesterdayreports, :renderer => BootstrapPagination::Rails %>
+<%else%>
+No Reports in this category
+<%end%>
+
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+
+              <p class="lead">
+<%if @zonethisweekreports.any?%>
+
+<p class="lead">This week Reports</p>
+
+<table id="datatable" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      
+      <th>Product</th>
+    
+      <th>Sold capacity</th>
+      <th>Estimate amount</th>
+      <th>Amount brought</th>
+      <th>Remark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zonethisweekreports.each do |sales_report| %>
+      <tr>
+       
+        <td><%= sales_report.product.name %></td>
+       
+        <td><%= sales_report.sold_capacity %></td>
+        <td><%= sales_report.estimate_amount %></td>
+        <td><%= sales_report.amount_brought %></td>
+        <td><%= sales_report.remark %></td>
+        <td><%= link_to 'Show', sales_report, class:"btn btn-success"%></td>
+       
+      </tr>
+
+    <% end %>
+
+
+  </tbody>
+
+</table>
+
+
+<table id="datatable" class="table table-striped table-bordered">
+  <tbody>
+
+
+ <tr><td> <p class="lead"><strong><center>Total Amount Brought: <%= zonethisweektotal_amount %> |  Total Estimated Amount: <%= zonethisweekestimate_amount %></center></strong></p><td></tr>
+
+  </tbody>
+
+</table>
+<%= will_paginate @zonethisweekreports, :renderer => BootstrapPagination::Rails %>
+<%else%>
+No Reports in this category
+<%end%></p>
+            </div>
+
+
+          </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+ <div class="col-md-9 col-sm-9 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2><i class="fa fa-bars"></i>Inner Pane <small>Inside Checkins</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+          
+          
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+
+        <div class="" role="tabpanel" data-example-id="togglable-tabs">
+          <ul id="myTab1" class="nav nav-tabs bar_tabs right" role="tablist">
+            <li role="presentation" class="active"><a href="#tab_content11" id="home-tabb" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Past 7 Days</a>
+            </li>
+            <li role="presentation" class=""><a href="#tab_content22" role="tab" id="profile-tabb" data-toggle="tab" aria-controls="profile" aria-expanded="false">This Month</a>
+            </li>
+            <li role="presentation" class=""><a href="#tab_content33" role="tab" id="profile-tabb3" data-toggle="tab" aria-controls="profile" aria-expanded="false">Past 30 days</a>
+            </li>
+          </ul>
+          <div id="myTabContent2" class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="tab_content11" aria-labelledby="home-tab">            
+              <p class="lead">
+<%if @zonepastweekreports.any?%>
+
+<p class="lead">Past 7 Days Reports</p>
+
+<table id="datatable" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      
+      <th>Product</th>
+    
+      <th>Sold capacity</th>
+      <th>Estimate amount</th>
+      <th>Amount brought</th>
+      <th>Remark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zonepastweekreports.each do |sales_report| %>
+      <tr>
+       
+        <td><%= sales_report.product.name %></td>
+       
+        <td><%= sales_report.sold_capacity %></td>
+        <td><%= sales_report.estimate_amount %></td>
+        <td><%= sales_report.amount_brought %></td>
+        <td><%= sales_report.remark %></td>
+        <td><%= link_to 'Show', sales_report, class:"btn btn-success"%></td>
+       
+      </tr>
+
+    <% end %>
+
+
+  </tbody>
+
+</table>
+
+
+<table id="datatable" class="table table-striped table-bordered">
+  <tbody>
+
+
+ <tr><td> <p class="lead"><strong><center>Total Amount Brought: <%= zonepastweektotal_amount %> |  Total Estimated Amount: <%= zonepastweekestimate_amount %></center></strong></p><td></tr>
+
+  </tbody>
+
+</table>
+<%= will_paginate @zonepastweekreports, :renderer => BootstrapPagination::Rails %>
+<%else%>
+No Reports in this category
+<%end%></p>
+
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab_content22" aria-labelledby="profile-tab">
+  
+            
+              <p class="lead">
+<%if @zonethismonthreports.any?%>
+
+<p class="lead">This month Reports</p>
+
+<table id="datatable" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      
+      <th>Product</th>
+    
+      <th>Sold capacity</th>
+      <th>Estimate amount</th>
+      <th>Amount brought</th>
+      <th>Remark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zonethismonthreports.each do |sales_report| %>
+      <tr>
+       
+        <td><%= sales_report.product.name %></td>
+       
+        <td><%= sales_report.sold_capacity %></td>
+        <td><%= sales_report.estimate_amount %></td>
+        <td><%= sales_report.amount_brought %></td>
+        <td><%= sales_report.remark %></td>
+        <td><%= link_to 'Show', sales_report, class:"btn btn-success"%></td>
+       
+      </tr>
+
+    <% end %>
+
+
+  </tbody>
+
+</table>
+
+
+<table id="datatable" class="table table-striped table-bordered">
+  <tbody>
+
+
+ <tr><td> <p class="lead"><strong><center>Total Amount Brought: <%= zonethismonthtotal_amount %> |  Total Estimated Amount: <%= zonethismonthestimate_amount %></center></strong></p><td></tr>
+
+  </tbody>
+
+</table>
+<%= will_paginate @zonethismonthreports, :renderer => BootstrapPagination::Rails %>
+<%else%>
+No Reports in this category
+<%end%></p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="tab_content33" aria-labelledby="profile-tab">
+
+        
+              <p class="lead">
+<%if @zonepastmonthreports.any?%>
+
+<p class="lead">Last 30 Days Reports</p>
+
+<table id="datatable" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      
+      <th>Product</th>
+    
+      <th>Sold capacity</th>
+      <th>Estimate amount</th>
+      <th>Amount brought</th>
+      <th>Remark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zonepastmonthreports.each do |sales_report| %>
+      <tr>
+       
+        <td><%= sales_report.product.name %></td>
+       
+        <td><%= sales_report.sold_capacity %></td>
+        <td><%= sales_report.estimate_amount %></td>
+        <td><%= sales_report.amount_brought %></td>
+        <td><%= sales_report.remark %></td>
+        <td><%= link_to 'Show', sales_report, class:"btn btn-success"%></td>
+      
+      </tr>
+
+    <% end %>
+
+
+  </tbody>
+
+</table>
+
+
+<table id="datatable" class="table table-striped table-bordered">
+  <tbody>
+
+
+ <tr><td> <p class="lead"><strong><center>Total Amount Brought: <%= zonepastmonthtotal_amount %> |  Total Estimated Amount: <%= zonepastmonthestimate_amount %></center></strong></p><td></tr>
+
+  </tbody>
+
+</table>
+<%= will_paginate @zonepastmonthreports, :renderer => BootstrapPagination::Rails %>
+<%else%>
+No Reports in this category
+<%end%></p>
+
+
+            </div>
+          </div>
+        </div>
+
+<div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+
+    
+        <!-- start accordion -->
+        <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel">
+            <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <h4 class="panel-title">3 Months Quarter</h4>
+            </a>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+              <div class="panel-body">           
+
+   
+              
+<%if @zonequarteryearreports.any?%>
+
+<p class="lead">3 Months Quarter Reports</p>
+
+<table id="datatable" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      
+      <th>Product</th>
+    
+      <th>Sold capacity</th>
+      <th>Estimate amount</th>
+      <th>Amount brought</th>
+      <th>Remark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zonequarteryearreports.each do |sales_report| %>
+      <tr>
+       
+        <td><%= sales_report.product.name %></td>
+       
+        <td><%= sales_report.sold_capacity %></td>
+        <td><%= sales_report.estimate_amount %></td>
+        <td><%= sales_report.amount_brought %></td>
+        <td><%= sales_report.remark %></td>
+        <td><%= link_to 'Show', sales_report, class:"btn btn-success"%></td>
+       
+      </tr>
+
+    <% end %>
+
+
+  </tbody>
+
+</table>
+
+
+<table id="datatable" class="table table-striped table-bordered">
+  <tbody>
+
+
+ <tr><td> <p class="lead"><strong><center>Total Amount Brought: <%= zonequarteryeartotal_amount %> |  Total Estimated Amount: <%= zonequarteryearestimate_amount %></center></strong></p><td></tr>
+
+  </tbody>
+
+</table>
+<%= will_paginate @zonequarteryearreports, :renderer => BootstrapPagination::Rails %>
+<%else%>
+No Reports in this category
+<%end%></p>
+
+              </div>
+            </div>
+          </div>
+
+ <div class="panel">
+            <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <h4 class="panel-title">This Calender Year Reports</h4>
+            </a>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+              <div class="panel-body">
+                
+                <%if @zonethisyearreports.any?%>
+
+<p class="lead">This Calender Year Reports</p>
+
+<table id="datatable" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      
+      <th>Product</th>
+    
+      <th>Sold capacity</th>
+      <th>Estimate amount</th>
+      <th>Amount brought</th>
+      <th>Remark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zonethisyearreports.each do |sales_report| %>
+      <tr>
+       
+        <td><%= sales_report.product.name %></td>
+       
+        <td><%= sales_report.sold_capacity %></td>
+        <td><%= sales_report.estimate_amount %></td>
+        <td><%= sales_report.amount_brought %></td>
+        <td><%= sales_report.remark %></td>
+        <td><%= link_to 'Show', sales_report, class:"btn btn-success"%></td>
+        
+      </tr>
+
+    <% end %>
+
+
+  </tbody>
+
+</table>
+
+
+<table id="datatable" class="table table-striped table-bordered">
+  <tbody>
+
+
+ <tr><td> <p class="lead"><strong><center>Total Amount Brought: <%= zonethisyeartotal_amount %> |  Total Estimated Amount: <%= zonethisyearestimate_amount %></center></strong></p><td></tr>
+
+  </tbody>
+
+</table>
+<%= will_paginate @zonethisyearreports, :renderer => BootstrapPagination::Rails %>
+<%else%>
+No Reports in this category
+<%end%></p>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <h4 class="panel-title">1 Year Ago Reports</h4>
+            </a>
+
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+              <div class="panel-body">
+                <%if @zonepastyearreports.any?%>
+
+<p class="lead">1 Year Ago Reports</p>
+
+<table id="datatable" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      
+      <th>Product</th>
+    
+      <th>Sold capacity</th>
+      <th>Estimate amount</th>
+      <th>Amount brought</th>
+      <th>Remark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zonepastyearreports.each do |sales_report| %>
+      <tr>
+       
+        <td><%= sales_report.product.name %></td>
+       
+        <td><%= sales_report.sold_capacity %></td>
+        <td><%= sales_report.estimate_amount %></td>
+        <td><%= sales_report.amount_brought %></td>
+        <td><%= sales_report.remark %></td>
+        <td><%= link_to 'Show', sales_report, class:"btn btn-success"%></td>
+      
+      </tr>
+
+    <% end %>
+
+
+  </tbody>
+
+</table>
+
+
+<table id="datatable" class="table table-striped table-bordered">
+  <tbody>
+
+
+ <tr><td> <p class="lead"><strong><center>Total Amount Brought: <%= zonepastyeartotal_amount %> |  Total Estimated Amount: <%= zonepastyearestimate_amount %></center></strong></p><td></tr>
+
+  </tbody>
+
+</table>
+<%= will_paginate @zonepastyearreports, :renderer => BootstrapPagination::Rails %>
+<%else%>
+No Reports in this category
+<%end%></p>
+
+              </div>
+            </div>
+          </div>
+         
+        </div>
+        <!-- end of accordion -->
+
+
+      </div>
+    </div>
+  </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+    
+

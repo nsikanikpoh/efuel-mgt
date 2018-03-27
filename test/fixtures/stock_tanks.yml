@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stock: one
+  stock_capacity: 1
+  sold_capacity: 1.5
+  sold_amount: 1.5
+  cost_price: 1.5
+
+two:
+  stock: two
+  stock_capacity: 1
+  sold_capacity: 1.5
+  sold_amount: 1.5
+  cost_price: 1.5

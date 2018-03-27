@@ -1,0 +1,32 @@
+<% provide( :title, @zone.name+" Station Entry") %>
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+
+  <div class="x_panel" style="">
+      <div class="x_title">
+      
+<p>
+  <strong>Name:</strong>
+  <%= @zone.name %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @zone.state %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @zone.company.name %>
+</p>
+
+
+<br>
+<br>
+<br>
+      <%= render "stations/form"%>
+
+
+
+</div>

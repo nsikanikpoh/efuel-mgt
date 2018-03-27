@@ -1,0 +1,32 @@
+
+
+<div class="container-fluid">
+  
+
+
+<%if stock_tank%> 
+
+<table class="table">
+ 
+
+  <tbody>
+    
+      <tr>
+       
+        <td><%= stock_tank.stock_capacity %></td>
+        <td><%= stock_tank.sold_capacity %></td>
+        <td><%= stock_tank.sold_amount %></td>
+        <td><%= stock_tank.cost_price %></td>
+        <td><%= link_to 'Goto Stock Tank', stock_tank %></td>
+      	<td><%= time_ago_in_words(pump.created_at)%> ago	</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+	</div>
+	
+
+
+

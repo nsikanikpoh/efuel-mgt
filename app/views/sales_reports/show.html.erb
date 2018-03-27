@@ -1,0 +1,101 @@
+<% provide( :title, @sales_report.product.station.name+" Sales Report For - "+@sales_report.product.name) %>
+
+
+
+<div class="row">
+  <div class="col-md-12">
+  <div class="x_panel" style="">
+      <div class="x_title">
+<h1>
+<%= @sales_report.product.name %> Sales Report in <%= @sales_report.product.station.name %> - <%= @sales_report.pump.name %> 
+</h1>
+</div>
+<p>
+  <strong>Station:</strong>
+  <%= @sales_report.product.station.name %>
+</p>
+
+
+<p>
+  <strong>Product:</strong>
+  <%= @sales_report.product.name %>
+</p>
+
+<p>
+  <strong>Pump:</strong>
+  <%= @sales_report.pump.name %>
+</p>
+<p>
+  <strong>Pump attendant name:</strong>
+  <%= @sales_report.pump_attendant_name %>
+</p>
+
+<p>
+  <strong>Pump attendat phone:</strong>
+  <%= @sales_report.pump_attendat_phone %>
+</p>
+
+<p>
+  <strong>Cost price:</strong>
+  <%= @sales_report.cost_price %>
+</p>
+<p>
+  <strong>Met at reading:</strong>
+  <%= @sales_report.met_at_reading %>
+</p>
+
+<p>
+  <strong>Left at reading:</strong>
+  <%= @sales_report.left_at_reading %>
+</p>
+
+<p>
+  <strong>Sold capacity:</strong>
+  <%= @sales_report.sold_capacity %>
+</p>
+
+<p>
+  <strong>Estimate amount:</strong>
+  <%= @sales_report.estimate_amount %>
+</p>
+
+<p>
+  <strong>Amount brought:</strong>
+  <%= @sales_report.amount_brought %>
+</p>
+<p>
+  <strong>Offset:</strong>
+  <%= @sales_report.track %>
+</p>
+
+<p>
+  <strong>Entered by:</strong>
+  <%= @sales_report.admin.full_name %> 
+
+  <%if @sales_report.admin.type == "Companyadmin" %>
+
+  <em>Admin(CEO)</em>
+ <%elsif @sales_report.admin.type == "Zonalmanager" %>
+<em>Zonal Manager</em>
+ <%elsif @sales_report.admin.type == "Manager" %>
+
+<em>Manager</em>
+<%end%>
+
+<%= link_to "Goto Profile", admin_path(@sales_report.admin), class:"btn btn-success"%>
+
+</p>
+
+
+<p>
+  <strong>Remark:</strong>
+  <%= @sales_report.remark %>
+</p>
+
+<%= link_to 'Edit', edit_sales_report_path(@sales_report), class:"btn btn-success" %> |
+<%= link_to 'Goto Station', station_path(@sales_report.product.station), class:"btn btn-info" %>|
+<%= link_to 'Goto Product', product_path(@sales_report.product), class:"btn btn-primary" %>
+<%= link_to "Back", :back, class:"btn btn-warning"%>
+</div>
+</div>
+</div>

@@ -1,0 +1,29 @@
+<% provide( :title, "New Zone Entry") %>
+<p id="notice"><%= notice %></p>
+
+<div class="container-fluid">
+
+
+<%if current_admin.companyadmin?%>
+ <%if current_admin.company == nil%>
+     <%= link_to 'Create Company', new_company_path %>
+
+
+     <strong>You must Have a company first</strong>
+     
+
+	<%else%>
+<div class="row">
+  <div class="col-md-12">
+
+  <div class="x_panel" style="">
+      <div class="x_title">
+     <h3> New Zone</h3>
+</div> 
+
+<%= render 'form', zone: @zone %>
+
+
+	<%end%>
+<%end%>
+</div>

@@ -1,0 +1,38 @@
+<% provide( :title, @pump.product.name+" New Tank Entry") %>
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+
+  <div class="x_panel" style="">
+      <div class="x_title">
+<h3> New Tank for <%= @pump.name %></h3>
+
+</div>
+
+ <p>
+ <strong><%= @pump.name %></strong>
+ </p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @product.station.company.name %>
+</p>
+<p>
+  <strong>Product:</strong>
+  <%= @pump.product.name %>
+</p>
+<p>
+ <strong>Branch Name:</strong>
+  <%= @pump.product.station.name %>
+</p>
+
+<br>
+<br>
+<br>
+      <%= render "tanks/form"%>
+
+
+<br/>
+</div>
+</div>
+</div>

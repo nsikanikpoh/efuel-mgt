@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  station_id: 1
+  stock: one
+  product: one
+  pump_attendant_name: MyString
+  pump_attendat_phone: 1
+  met_at_reading: 1.5
+  left_at_reading: 1.5
+  sold_capacity: 1.5
+  estimate_amount: 1.5
+  amount_brought: 1.5
+  remark: 1
+
+two:
+  station_id: 1
+  stock: two
+  product: two
+  pump_attendant_name: MyString
+  pump_attendat_phone: 1
+  met_at_reading: 1.5
+  left_at_reading: 1.5
+  sold_capacity: 1.5
+  estimate_amount: 1.5
+  amount_brought: 1.5
+  remark: 1

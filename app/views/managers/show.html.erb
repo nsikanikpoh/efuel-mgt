@@ -1,0 +1,52 @@
+<% provide( :title, @manager.fname+" "+@manager.lname) %>
+
+<div class="row">
+  <div class="col-md-12">
+  <div class="x_panel" style="">
+      <div class="x_title">
+<h1>
+  
+    <%= @manager.fname.capitalize %> <%= @manager.lname.capitalize %>
+</h1>
+</div>
+
+
+<p>
+  <strong>E-mail:</strong>
+  <%= @manager.email %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @manager.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @manager.phone %>
+</p>
+
+<p>
+  <strong>company:</strong>
+  <%= @manager.company.name %>
+</p>
+
+
+<p>
+  <strong>City:</strong>
+  <%= @manager.city %>
+</p>
+
+
+<p>
+  <strong>State:</strong>
+  <%= @manager.state %>
+</p>
+
+<%= link_to 'Edit', edit_manager_path(@manager), class:"btn btn-success" %> |
+<%= link_to 'Dashboard', dashboard_path, class:"btn btn-info" %>
+<%= link_to "Back", :back, class:"btn btn-warning"%>
+
+</div>
+</div>
+</div>

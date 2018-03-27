@@ -1,0 +1,37 @@
+<div class = "container-fluid">
+<%= form_for([@stock]) do |form| %>
+  
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :stock_description %>
+  </div>
+
+ 
+  <div class="field">
+    <%= form.label :tank_capacity %>
+    <%= form.number_field :tank_capacity, id: :stock_tank_capacity %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :supplier %>
+    <%= form.text_field :supplier, id: :stock_supplier %>
+  </div>
+  
+
+  <div class="field">
+    <%= form.label :cost_per_ltr %>
+    <%= form.text_field :cost_per_ltr, id: :stock_cost_per_ltr %>
+  </div>
+
+  <div class="field">
+    <%= form.label :selling_price_per_ltr %>
+    <%= form.text_field :selling_price_per_ltr, id: :stock_selling_price_per_ltr %>
+  </div>
+
+ 
+
+  <div class="actions">
+    <%= form.submit "Edit Stock", class: "btn btn-primary" %>
+  </div>
+<% end %>

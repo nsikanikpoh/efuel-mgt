@@ -1,0 +1,47 @@
+<% provide( :title, @tank.product.station.name+" Tank for - "+@tank.pump.name) %>
+
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+  <div class="x_panel" style="">
+      <div class="x_title">
+<h1>
+<%= @tank.product.name %> Tank in <%= @tank.product.station.name %>
+</h1>
+</div>
+<p>
+  <strong>Station:</strong>
+  <%= @tank.product.station.name %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @tank.product.name %>
+</p>
+<p>
+  <strong>Pump:</strong>
+  <%= @tank.pump.name %>
+</p>
+
+<p>
+  <strong>Total capacity:</strong>
+  <%= @tank.total_capacity %>
+</p>
+
+<p>
+  <strong>Used capacity:</strong>
+  <%= @tank.used_capacity %>
+</p>
+
+<p>
+  <strong>Free capacity:</strong>
+  <%= @tank.free_capacity %>
+</p>
+
+<%= link_to 'Edit', edit_tank_path(@tank), class:"btn btn-success" %> |
+<%= link_to 'Back To Pump', pump_path(@tank.pump), class:"btn btn-info" %>
+<%= link_to "Back", :back, class:"btn btn-warning"%>
+
+</div>
+</div>
+</div>

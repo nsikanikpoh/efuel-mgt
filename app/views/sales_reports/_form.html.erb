@@ -1,0 +1,95 @@
+<%= form_for([@product, @product.sales_reports.build]) do |form| %>
+    
+      <div class="row">
+  <div class="col-md-6 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>New Sales Report Form <small>sales repport entry for <%=@product.name%> </small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+          
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br />
+<p class="lead">You must select the pump you are reporting sales from, else this form would not be submitted.</p>
+        <form class="form-horizontal form-label-left input_mask">
+
+          <div class="col-md-9 col-sm-9 col-xs-12 form-group has-feedback">
+        
+            <%= form.label :pump_id, "Please Select Pump"%><br>
+  <%= form.collection_select :pump_id, @product.pumps.order(:name),:id,:name, include_blank: "Pump...", class:"form-control", required:"required" %>
+
+          </div>
+
+   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+          <%= form.label :pump_attendant_name %>
+    <%= form.text_field :pump_attendant_name, id: :sales_report_pump_attendant_name,  class:"form-control has-feedback-left", placeholder:"Name", type:"text", required:"required"  %>  
+  <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+
+ 
+
+ <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+             <%= form.label :pump_attendat_phone %>
+    <%= form.number_field :pump_attendat_phone, id: :sales_report_pump_attendat_phone, class:"form-control", id:"inputSuccess5", placeholder:"Phone", type:"number", required:"required"   %>
+
+            <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+          </div>
+
+   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+   
+<%= form.label :cost_price,"sales Price Per Ltr" %>
+    <%= form.text_field :cost_price, id: :sales_report_cost_price,  class:"form-control has-feedback-left", placeholder:"price per litre", type:"number", required:"required", type:"number", required:"required"   %>
+
+  <span class="fa fa form-control-feedback left" aria-hidden="true">N</span>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+               <%= form.label :met_at_reading %>
+    <%= form.text_field :met_at_reading, id: :sales_report_met_at_reading, class:"form-control", placeholder:"Reading", type:"number", required:"required"   %>
+             
+            <span class="fa fa-edit form-control-feedback right" aria-hidden="true"></span>
+          </div>
+
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+              <%= form.label :left_at_reading %>
+    <%= form.text_field :left_at_reading, id: :sales_report_left_at_reading, class:"form-control", placeholder:"Reading", type:"number", required:"required"   %>
+ 
+             
+            <span class="fa fa-edit form-control-feedback right" aria-hidden="true"></span>
+          </div>
+
+           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+               <%= form.label :amount_brought %>
+    <%= form.text_field :amount_brought, id: :sales_report_amount_brought, class:"form-control", placeholder:"Money", type:"number", required:"required"   %>
+  
+             
+            <span class="fa fa form-control-feedback right" aria-hidden="true">N</span>
+          </div>
+
+
+          <div class="form-group">
+            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+               <%= form.submit "Submit", class:"btn btn-info"%>   <%= link_to "Cancel", product_path(@product),class:"btn btn-danger"%>
+
+
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+<% end %>
+
+ 
+
+

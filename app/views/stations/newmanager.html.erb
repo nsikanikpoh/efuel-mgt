@@ -1,0 +1,40 @@
+<% provide( :title, @station.name+" New Station Manager Entry") %>
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+
+  <div class="x_panel" style="">
+      <div class="x_title">
+      
+<h3> New Manager</h3>
+</div>
+<p>
+  <strong>Branch Name:</strong>
+  <%= @station.name %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @station.company.name %>
+</p>
+<p>
+  <strong>Zone:</strong>
+  <%= @station.zone.name %>
+</p>
+<br>
+<br>
+<br>
+
+      <%= render "managers/new"%>
+
+
+<br/>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+

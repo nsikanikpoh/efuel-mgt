@@ -1,0 +1,23 @@
+<% provide( :title, @product.station.name+" New Tank Entry") %>
+<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+<p>
+  <strong>Branch Name:</strong>
+  <%= @product.station.name %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @product.station.company.name %>
+</p>
+<p>
+  <strong>Product:</strong>
+  <%= @product.name %>
+</p>
+
+  <h3> Add Tank</h3>
+      <%= render "tanks/form"%>
+
+<%= link_to 'Back To Product', product_path(@product) %>
+<br/>
+</div>

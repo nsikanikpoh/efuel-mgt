@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  station: one
+  tank_capacity: 1
+  product: one
+  supplier: MyString
+  cost_price: 1.5
+  cost_per_ltr: 1.5
+  selling_price_per_ltr: 1.5
+  estimate_profit_percent: 1.5
+  estimate_profit: 1.5
+
+two:
+  description: MyText
+  station: two
+  tank_capacity: 1
+  product: two
+  supplier: MyString
+  cost_price: 1.5
+  cost_per_ltr: 1.5
+  selling_price_per_ltr: 1.5
+  estimate_profit_percent: 1.5
+  estimate_profit: 1.5

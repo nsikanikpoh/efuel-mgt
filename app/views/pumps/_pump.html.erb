@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  
+
+
+<%if pump%> 
+
+
+
+  <tbody>
+    
+      <tr>
+       
+        <td><%= pump.name %></td>
+        <td><%= link_to 'Goto Pump', pump %></td>
+        <td><%= link_to 'Edit', edit_pump_path(pump) %></td>
+        <td><%= link_to 'Destroy', [pump.product, pump], method: :delete, data: {confirm: "Are you sure you want to delete this pump..? this may affect your system reports and projections."} %></td>
+        
+      	<td><%= time_ago_in_words(pump.created_at)%> ago	</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+	
+	</div>
+	
+
+	

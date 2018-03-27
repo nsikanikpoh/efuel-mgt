@@ -1,0 +1,157 @@
+<% provide( :title, "Edit Registration") %>
+<p class="notice"><%= notice %></p>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
+  <%= devise_error_messages! %>
+
+
+
+<div class="row">
+  <div class="col-md-6 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Edit Registration Details</h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+        
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br />
+        <form class="form-horizontal form-label-left input_mask">
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <%= form.label :fname, "First Name"%>
+            <%= form.text_field :fname, id: :admin_fname, class:"form-control has-feedback-left", placeholder:"First Name"%>
+            
+            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+
+
+
+
+
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+
+          <%= form.label :lname, "Last Name" %>
+        <%= form.text_field :lname, id: :admin_lname, class:"form-control", placeholder:"Last Name" %>
+            
+            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+    <%= form.label :email, "Email" %>
+    <%= form.email_field :email, autofocus: true, autocomplete: "email",  class:"form-control has-feedback-left", placeholder:"Email"%>
+  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+                <%= form.label :phone, "Phone"%>
+              <%= form.number_field :phone, id: :admin_phone, class:"form-control", placeholder:"Phone" %>
+
+            <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+          </div>
+
+
+
+
+
+
+
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+    <%= form.label :password, "Password" %>
+    
+    <%= form.password_field :password, autocomplete: "off",  class:"form-control has-feedback-left", placeholder:"Password"%>
+  <span class="fa fa-briefcase form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+
+
+
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+                <%= form.label :password_confirmation , "Confirm Password"%>
+              <%= form.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Confirm Password" %>
+
+            <span class="fa fa-briefcase form-control-feedback right" aria-hidden="true"></span>
+          </div>
+
+
+
+   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+    <%= form.label :address, "Address" %>
+    
+    <%= form.text_field :address, id: :admin_address,  class:"form-control has-feedback-left", placeholder:"Address"%>
+  <span class="fa fa-envelop form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+
+
+<%if current_admin.companyadmin?%>
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+                <%= form.label :sub_no , "Number of stations"%>
+              <%= form.number_field :sub_no, id: :admin_sub_no , class:"form-control", placeholder:"Number" %>
+
+            <span class="fa fa-briefcase form-control-feedback right" aria-hidden="true"></span>
+          </div>
+
+<%end%>
+
+
+
+
+   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+    <%= form.label :state, "State" %>
+    
+    <%= form.text_field :state, id: :admin_state,  class:"form-control has-feedback-left", placeholder:"State"%>
+  <span class="fa fa-envelop form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+
+
+
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+                <%= form.label :city , "City"%>
+              <%= form.text_field :city, id: :admin_city , class:"form-control", placeholder:"City" %>
+
+            <span class="fa fa-briefcase form-control-feedback right" aria-hidden="true"></span>
+          </div>
+
+
+
+          
+          <div class="form-group">
+            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+               <%= form.submit "Sign up", class:"btn btn-success"%>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,class:"btn btn-primary" %></p>
+
+<%= link_to "Back", :back, class:"btn btn-primary"%>
+     </div>
+          </div>
+
+        </form>
+      </div>
+    </div>

@@ -1,0 +1,84 @@
+<% provide( :title, @pump.product.station.name+" New Stock Entry - "+@pump.product.name) %>
+<div class="row">
+  <div class="col-md-12">
+
+  <div class="x_panel" style="">
+      <div class="x_title">
+<h3> New Stock for <%= @pump.name %></h3>
+
+
+<p>
+  <strong>Branch Station:</strong>
+  <%= @pump.product.station.name %>
+</p>
+
+<p>
+
+  <strong>Product Category:</strong>
+  <%= @pump.product.name %>
+</p>
+<p>
+
+  <strong>Pump:</strong>
+  <%= @pump.name %>
+</p>
+
+
+ <br>
+ <br>
+ <br>
+
+
+
+
+<% if @pump.tank %>
+<center><p class="lead"><%= @pump.name%> Main Tank</p></center>
+<br>
+<strong><em>You can only fill up to the available tank capacity on this pump</em></strong>
+
+
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Total capacity</th>
+      <th>Used capacity</th>
+      <th>Available capacity</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+   
+      <tr>
+       
+       
+        <td><%= @pump.tank.total_capacity %></td>
+        <td><%= @pump.tank.used_capacity %></td>
+        <td><%= @pump.tank.free_capacity %></td>
+       
+      </tr>
+      <%else%>
+      There is no tank added for this pump yet!
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+              </div>
+            </div>
+          </div>
+
+<br>
+<br>
+<br>
+
+
+      <%= render "stocks/form"%>
+
+
+
+</div>      
+</div>
+</div>

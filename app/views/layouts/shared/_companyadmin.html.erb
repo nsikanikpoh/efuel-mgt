@@ -1,0 +1,118 @@
+<div class="navbar nav_title" style="border: 0;">
+  <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>3DPetMan</span></a>
+</div>
+
+<div class="clearfix"></div>
+
+<!-- menu profile quick info -->
+<div class="profile clearfix">
+  <div class="profile_pic">
+    <img  alt="..." class="img-circle profile_img">
+  </div>
+  <div class="profile_info">
+    <span>Welcome,</span>
+    <h2><%=current_admin.full_name%></h2>
+  </div>
+</div>
+<!-- /menu profile quick info -->
+
+<br />
+
+<!-- sidebar menu -->
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+  <div class="menu_section">
+    <h3>Administrative Panel</h3>
+    <ul class="nav side-menu">
+      <li><a href="/dashboard"><i class="fa fa-home"></i> Home </a>
+      </li>
+       <li><%= link_to company_path(current_admin.company) do%><i class="fa fa-info"></i>Company Info<%end%>
+      </li>
+
+
+        <li><%= link_to new_zone_path do%><i class="fa fa-plus"></i>Add Zone<%end%>
+      </li>
+
+      <li><a href="/3dpetman-company-zones"><i class="fa fa-clone"></i> Zones <span class="fa fa-chevron-down"></span></a>
+       <%if current_admin.zones.any?%>
+            <% current_admin.zones.each do |zone| %>
+        <ul class="nav child_menu">        
+        <li><%= link_to zone.name, zone %></li>
+       </ul>
+      </li>
+    <% end %>
+
+      <%end%>
+
+
+       <li><a href="/3dpetman-company-stations"><i class="fa fa-edit"></i> Stations <span class="fa fa-chevron-down"></span></a>
+       <%if current_admin.company.stations.any?%>
+            <% current_admin.company.stations.each do |station| %>
+        <ul class="nav child_menu">        
+        <li><%= link_to station.name, station %></li>
+       </ul>
+      </li>
+    <% end %>
+
+      <%end%>
+
+      
+       <li><a href="/3dpetman-company-zonal-managers"><i class="fa fa-sitemap"></i> Zonal Managers <span class="fa fa-chevron-down"></span></a>
+       <%if current_admin.zonalmanagers.any?%>
+            <% current_admin.zonalmanagers.each do |station| %>
+        <ul class="nav child_menu">        
+        <li><%= link_to station.full_name, station %></li>
+       </ul>
+      </li>
+    <% end %>
+
+      <%end%>
+
+       <li><a href="/3dpetman-company-managers"><i class="fa fa-desktop"></i>Managers <span class="fa fa-chevron-down"></span></a>
+       <%if current_admin.managers.any?%>
+            <% current_admin.managers.each do |station| %>
+        <ul class="nav child_menu">        
+        <li><%= link_to station.full_name, station %></li>
+       </ul>
+      </li>
+    <% end %>
+
+      <%end%>
+
+      <li><a href="/3dpetman-company-sales-reports"><i class="fa fa-bar-chart-o"></i>Sales Reports <span class="fa fa-chevron-down"></span></a>
+       <%if current_admin.company.sales_reports.any?%>
+            <% current_admin.stations.each do |station| %>
+        <ul class="nav child_menu">        
+        <li><%= link_to station.name, station %></li>
+       </ul>
+      </li>
+    <% end %>
+
+      <%end%>
+
+      
+   
+    </ul>
+  </div>
+
+</div>
+<!-- /sidebar menu -->
+
+<!-- /menu footer buttons -->
+<div class="sidebar-footer hidden-small">
+  <a data-toggle="tooltip" data-placement="top" title="Settings">
+    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+  </a>
+  <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+    <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+  </a>
+  <a data-toggle="tooltip" data-placement="top" title="Lock">
+    <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+  </a>
+  <%= link_to destroy_admin_session_path, method: :delete do%> 
+  
+    <span data-toggle="tooltip" data-placement="top" title="Logout" class="glyphicon glyphicon-off" aria-hidden="true"></span>
+ 
+<%end%>
+</div>
+<!-- /menu footer buttons -->
+

@@ -1,0 +1,10 @@
+<%if current_admin.companyadmin?%>
+ <%= render partial: 'dashboard/companyadmin' %>
+
+<%elsif current_admin.zonalmanager?%>
+
+<%= render partial: 'dashboard/zonalmanager' %>
+
+<%elsif current_admin.manager?%>
+<%= render partial: 'dashboard/manager' %>
+<%end%>

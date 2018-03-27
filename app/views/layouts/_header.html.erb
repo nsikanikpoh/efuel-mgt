@@ -1,0 +1,132 @@
+ <% if admin_signed_in? %>
+
+ <header class="topbar">
+      <div class="topbar-left">
+
+      <div class="dropdown d-none d-md-block">
+       
+         
+      <a class="dropdown-item" href="/dashboard">
+      eFM.
+        <i class="fa fa-leaf" style="height: 20px; width:20px;"></i></strong></a>
+      
+      
+      </span>
+      </div>
+       
+
+        <div class="dropdown d-none d-md-block">
+          <span class="topbar-btn" data-toggle="dropdown"><strong>Quick Menu<i class="fa fa-glass" style="height: 20px; width:20px;"></i><i class="ti-layout-grid3-alt"></i></strong></span>
+          <div class="dropdown-menu dropdown-grid">
+            <a class="dropdown-item" href="/dashboard">
+              <span data-i8-icon="home"></span>
+              <span class="title">Dashboard</span>
+            </a>
+            
+            <a class="dropdown-item" href="/PFPM02FLORDO2WZF4QU47NORRUUP6WSU80K7K7VMRZKYP5JIDZAWLXP5KBNIMPV4E0QYWJSQUB5-acetracecms-forum-repo">
+              <span data-i8-icon="search"></span>
+              <span class="title">Forum</span>
+            </a>
+            
+            
+          </div>
+        </div>
+
+        <div class="topbar-divider d-none d-md-block"></div>
+
+        <div class="lookup d-none d-md-block topbar-search" id="theadmin-search">
+          <input class="form-control w-300px" type="text">
+          <div class="lookup-placeholder">
+            <i class="ti-search"></i>
+            <span data-provide="typing" data-type="<strong>Type</strong> Button|<strong>Type</strong> Slider|<strong>Type</strong> Layout|<strong>Type</strong> Modal|<strong>Try</strong> typing any keyword..." data-loop="false" data-type-speed="90" data-back-speed="50" data-show-cursor="false"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <a class="topbar-btn" href="#qv-global" data-toggle="quickview"><i class="ti-align-right"></i></a>
+
+        <div class="topbar-divider"></div>
+
+        <ul class="topbar-btns">
+          <li class="dropdown">
+          
+            <span class="topbar-btn" data-toggle="dropdown">Hello, <%= current_admin.fname %>
+         
+          <img class="avatar" src="../assets/img/avatar/1.jpg" alt="...">
+      
+        </span>
+        </span>
+            <div class="dropdown-menu dropdown-menu-right">
+              <i class="ti-user"></i> <%= link_to 'Profile', admins_path(current_admin), class:'dropdown-item' %>
+
+           
+             
+                <div class="flexbox">
+                 
+                </div>
+              <i class="ti-user"></i> <%= link_to 'Settings', edit_admin_registration_path, class:'dropdown-item' %>
+              <div class="dropdown-divider"></div>
+              
+              <i class="ti-email"></i>
+                     <%= link_to 'Log out', destroy_admin_session_path, method: :delete , class:'dropdown-item'%>
+                  
+                 
+            </div>
+          </li>
+
+          <!-- Notifications -->
+         
+          <li class="dropdown d-none d-md-block">
+
+
+            <span class="topbar-btn has-new" data-toggle="dropdown">
+           
+           <span class="topbar-btn has-new" data-toggle="dropdown"><%= render_notifications_of current_admin, index_content: :with_attributes, target: :users, fallback: :default %>
+             <i class="ti-bell"></i>
+          </span>
+       
+        </span>
+        <span>
+            
+
+               
+              </div>
+
+            </div>
+          </li>
+
+          <!-- END Notifications -->
+
+          <!-- Messages -->
+         
+          <!-- END Messages -->
+
+        </ul>
+
+      </div>
+    </header>
+
+
+
+
+
+
+              </div>
+
+            </div>
+          </li>
+
+          <!-- END Notifications -->
+
+          <!-- Messages -->
+         
+          <!-- END Messages -->
+
+        </ul>
+
+      </div>
+    </header>
+ 
+
+<%end%>

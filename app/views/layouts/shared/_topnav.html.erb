@@ -1,0 +1,67 @@
+<div class="nav toggle">
+  <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+</div>
+
+<ul class="nav navbar-nav navbar-right">
+  <li class="">
+
+    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+
+<%if current_admin.companyadmin?%>
+   Company Administrator(CEO)
+<%elsif current_admin.zonalmanager?%>
+
+ Zonal Manager
+
+<%elsif current_admin.manager?%>
+
+ Manager
+<%end%>
+
+
+    
+<%if current_admin.companyadmin?%>
+  <%if current_admin.company %>
+
+    at <%=current_admin.company.name%>
+
+    <%else%>
+    No Company Profile Registerd Yet
+    <%end%>
+<%elsif current_admin.zonalmanager? || current_admin.manager?%>
+  at <%current_admin.company.name%>
+
+<%end%>
+    
+      <img src="images/img.jpg" alt=""><%=current_admin.full_name%>
+      <span class=" fa fa-angle-down"></span>
+    </a>
+    <ul class="dropdown-menu dropdown-usermenu pull-right">
+      <li><%= link_to 'Profile', admin_path(current_admin) %></li>
+      <li>
+    
+          
+          <span><%= link_to "Settings", edit_admin_registration_path(current_admin)%></span>
+       
+      </li>
+
+
+
+      <li><a href="">Help</a></li>
+      <li>
+      
+
+        <%= link_to destroy_admin_session_path, method: :delete do%> 
+    Logout
+    <span data-toggle="tooltip" data-placement="top" title="Logout" class="glyphicon glyphicon-off" aria-hidden="true"></span>
+ 
+<%end%>
+      </li>
+    </ul>
+  </li>
+
+  
+    </ul>
+  </li>
+</ul>
+

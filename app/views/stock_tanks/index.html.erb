@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Stock Tanks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Stock</th>
+      <th>Stock capacity</th>
+      <th>Sold capacity</th>
+      <th>Sold amount</th>
+      <th>Cost price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stock_tanks.each do |stock_tank| %>
+      <tr>
+        <td><%= stock_tank.stock %></td>
+        <td><%= stock_tank.stock_capacity %></td>
+        <td><%= stock_tank.sold_capacity %></td>
+        <td><%= stock_tank.sold_amount %></td>
+        <td><%= stock_tank.cost_price %></td>
+        <td><%= link_to 'Show', stock_tank %></td>
+        <td><%= link_to 'Edit', edit_stock_tank_path(stock_tank) %></td>
+        <td><%= link_to 'Destroy', stock_tank, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stock Tank', new_stock_tank_path %>

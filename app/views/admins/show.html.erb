@@ -1,0 +1,56 @@
+<% provide( :title, @admin.fname+" "+@admin.lname) %>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-12">
+  <div class="x_panel" style="">
+      <div class="x_title">
+<h1>
+<%= @admin.fname %> <%= @admin.lname %>
+</h1>
+
+</div>
+<%if @admin.sub_no%>
+
+  <p>
+  <strong>Number of Stations:</strong>
+  <%= @admin.sub_no %>
+</p>
+
+
+<%end%>
+
+
+<p>
+  <strong>E-mail:</strong>
+  <%= @admin.email %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @admin.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @admin.phone %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @admin.city %>
+</p>
+
+
+<p>
+  <strong>State:</strong>
+  <%= @admin.state %>
+</p>
+
+
+<%= link_to 'dashboard', dashboard_path, class:"btn btn-info" %>
+<%= link_to "Back", :back, class:"btn btn-warning"%>
+</div>
+</div>
+</div>
+</div>

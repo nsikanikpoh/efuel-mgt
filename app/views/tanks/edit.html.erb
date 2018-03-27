@@ -1,0 +1,62 @@
+<%= form_for([@tank]) do |form| %>
+  
+  
+	<div class="row">
+  <div class="col-md-6 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Edit Tank Form <small>tank@</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+          
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br />
+        <form class="form-horizontal form-label-left input_mask">
+
+
+
+   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+    <%= form.label :total_capacity, "Tank Capacity" %>
+    <%= form.number_field :total_capacity, id: :tank_total_capacity,  class:"form-control has-feedback-left", placeholder:"Tank Capacity" %>
+  <span class="fa fa-briefcase form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+    <%= form.label :used_capacity, "Used Capacity" %>
+    <%= form.number_field :used_capacity, id: :tank_used_capacity,  class:"form-control has-feedback-left", placeholder:"Used Capacity" %>
+  <span class="fa fa-briefcase form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+    <%= form.label :used_capacity, "Free Capacity" %>
+    <%= form.number_field :used_capacity, id: :tank_used_capacity,  class:"form-control has-feedback-left", placeholder:"Free Capacity" %>
+  <span class="fa fa-briefcase form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+
+          <div class="form-group">
+            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                  <%= form.submit "Submit", class:"btn btn-primary"%>   <%= link_to "Cancel", pump_path(@tank.pump),class:"btn btn-danger"%>
+
+
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+
+
+<% end %>
+
+
+
+

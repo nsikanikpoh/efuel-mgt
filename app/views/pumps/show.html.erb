@@ -1,0 +1,145 @@
+<% provide( :title, @pump.station.name+" Pump for - "+@pump.product.name) %>
+<div class="row">
+  <div class="col-md-12">
+  <div class="x_panel" style="">
+      <div class="x_title">
+<h1>
+<%= @pump.name %>
+</h1>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Station:</strong>
+  <%= @pump.station.name %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @pump.product.name %>
+</p>
+
+<br>
+<br>
+<br>
+<div class="x_content">
+
+        <!-- start accordion -->
+        <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel">
+            <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <h4 class="panel-title"><%= @pump.name%> Tank</h4>
+            </a>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+              <div class="panel-body">           
+
+
+<% if @pump.tank %>
+
+<%= @pump.name%> Main Tank
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Total capacity</th>
+      <th>Used capacity</th>
+      <th>Free capacity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+   
+      <tr>
+       
+       
+        <td><%= @pump.tank.total_capacity %></td>
+        <td><%= @pump.tank.used_capacity %></td>
+        <td><%= @pump.tank.free_capacity %></td>
+        <td><%= link_to 'Show', @pump.tank, class:"btn btn-success" %></td>
+        <td><%= link_to 'Edit', edit_tank_path(@pump.tank), class:"btn btn-success" %></td>
+        <td><%= link_to 'Delete', @pump.tank, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+      </tr>
+      <%else%>
+      There is no tank added for this pump yet!
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+              </div>
+            </div>
+          </div>
+
+
+<div class="panel">
+            <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <h4 class="panel-title"><%= @pump.name %> Stocks</h4>
+            </a>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+              <div class="panel-body">
+                
+                  <% if @pump.stocks.any? %><p class="lead">
+ Stocks For <%=@pump.name%> in <%= @pump.station.name %> Station
+
+                </p>
+    
+<strong><em>Click on each stock to track it.</em></strong>            
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Description</th>
+   
+      <th>Tank capacity</th>
+     
+      <th>Cost per ltr</th>
+
+      <th>Selling price per ltr</th>
+  
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+<tbody>
+    <% @pump.stocks.order(created_at: :desc, id: :desc).each do |stock| %>
+      <tr>
+        <td><%= stock.description %></td>
+       
+        <td><%= stock.tank_capacity %></td>
+      
+       
+        <td><%= stock.cost_per_ltr %></td>
+        <td><%= stock.selling_price_per_ltr %></td>
+        <td><%= link_to 'Show', stock, class:"btn btn-success" %></td>
+        <td><%= link_to 'Edit', edit_stock_path(stock), class:"btn btn-success" %></td>
+        <td><%= link_to 'Delete', [stock.product, stock], method: :delete, data: {confirm: "Are you sure you want to delete this stock..? its going affect your system reports and projections."}, class:"btn btn-danger" %></td>
+        <td><%= time_ago_in_words(stock.created_at)%> ago </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% else %>
+There are no stocks added to this pump category yet.
+<% end %>
+
+              </div>
+            </div>
+          </div>
+          <br>
+          <br>
+
+<%= link_to 'Edit', edit_pump_path(@pump), class:"btn btn-success" %> |
+<%= link_to 'Back To Product', product_path(@pump.product), class:"btn btn-info" %>
+ <%if @pump.tank == nil%>
+    | <%= link_to 'Add Tank', newtank_pump_path , class: "btn btn-info"%>
+
+     <%end%>
+
+     | <%= link_to 'Add stock', newstock_pump_path(@pump.id) , class: "btn btn-primary"%> | <%= link_to "Back", :back, class:"btn btn-warning"%>
+</div>
+</div>
+</div>

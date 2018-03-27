@@ -1,0 +1,41 @@
+
+
+<div class="container-fluid">
+  
+
+
+<%if sales_report%> 
+
+<table class="table">
+ 
+
+  <tbody>
+    
+      <tr>
+       
+        <td><%= sales_report.pump_attendant_name %></td>
+        <td><%= sales_report.pump_attendant_name %></td>
+
+        <td><%= sales_report.cost_price %></td>
+        
+        <td><%= sales_report.met_at_reading %></td>
+        <td><%= sales_report.left_at_reading %></td>
+        <td><%= sales_report.sold_capacity %></td>
+        <td><%= sales_report.estimate_amount %></td>        
+        <td><%= sales_report.amount_brought %></td>
+        <td><%= sales_report.remark %></td>
+        <td><%= link_to 'Goto Sales Report', sales_report %></td>
+
+      	<td><%= time_ago_in_words(sales_report.created_at)%> ago	</td>
+        <%= link_to "delete", [sales_report.station, sales_report], method: :delete, data: {confirm: "Are you sure you want to delete this report"}%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+	</div>
+	
+
+
+

@@ -1,0 +1,367 @@
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.font-dosis {
+  font-family: Dosis,Roboto,sans-serif;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.bg-ui-general {
+  background-image: url(../img/header/general.png);
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.doc-btn-spacing .btn {
+  margin-bottom: 10px;
+  margin-right: 6px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.doc-btn-spacing .btn-group {
+  margin-bottom: 10px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.doc-btn-spacing .btn-group .btn, .doc-btn-spacing .btn-group .btn-group, .doc-btn-spacing .btn-group-vertical .btn {
+  margin-bottom: 0;
+  margin-right: 0;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.doc-dropdown .dropdown, .doc-dropdown .dropup {
+  display: inline-block;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.doc-dropdown .dropdown-grid, .doc-dropdown .dropdown-menu {
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.doc-bg-colors-spacing > [class*=bg-] {
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.doc-link-colors-spacing > a[class] {
+  padding-right: 8px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.doc-topbar-static .topbar {
+  position: static;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.doc-topbar-static .topbar .sidebar-toggler, .doc-topbar-static .topbar .topbar-menu-toggler {
+  display: none;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.topbar-menu-open .doc-topbar-static .topbar .topbar-navigation {
+  display: none;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.doc-aos div {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 50px;
+  background-color: #fff;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.07);
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-code-for-media .code-title {
+  background-color: #fff;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-code-for-media .code-preview {
+  padding: 0;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-code-for-media .code-toggler ~ pre {
+  display: none;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.doc-media-bg .media {
+  background-color: #f9fafb;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 32px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list li {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 72px;
+  height: 72px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list li .material-icons {
+  font-size: inherit;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list li [data-i8-icon] {
+  margin: 0 10px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list li [data-provide~=emoji] svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list li:hover {
+  background-color: #f7fafc;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list.icons-size-16px {
+  font-size: 16px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list.icons-size-16px li {
+  width: 56px;
+  height: 56px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list.icons-size-24px {
+  font-size: 24px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list.icons-size-24px li {
+  width: 64px;
+  height: 64px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list.icons-size-32px {
+  font-size: 32px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list.icons-size-32px li {
+  width: 72px;
+  height: 72px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list.icons-size-48px {
+  font-size: 48px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list.icons-size-48px li {
+  width: 88px;
+  height: 88px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list.icons-size-64px {
+  font-size: 64px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list.icons-size-64px li {
+  width: 104px;
+  height: 104px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list.icons-size-80px {
+  font-size: 80px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list.icons-size-80px li {
+  width: 120px;
+  height: 120px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list.icons-size-96px {
+  font-size: 96px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-icons-list.icons-size-96px li {
+  width: 136px;
+  height: 136px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-emoji-list-container .demo-icons-list li {
+  margin-right: 0;
+  margin-bottom: 0;
+  width: 52px;
+  height: 52px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-emoji-list-container .demo-icons-list.icons-size-16px li {
+  width: 36px;
+  height: 36px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-emoji-list-container .demo-icons-list.icons-size-16px li [data-provide~=emoji] svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-emoji-list-container .demo-icons-list.icons-size-24px li {
+  width: 44px;
+  height: 44px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-emoji-list-container .demo-icons-list.icons-size-24px li [data-provide~=emoji] svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-emoji-list-container .demo-icons-list.icons-size-32px li {
+  width: 52px;
+  height: 52px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-emoji-list-container .demo-icons-list.icons-size-32px li [data-provide~=emoji] svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-emoji-list-container .demo-icons-list.icons-size-48px li {
+  width: 68px;
+  height: 68px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-emoji-list-container .demo-icons-list.icons-size-48px li [data-provide~=emoji] svg {
+  width: 48px;
+  height: 48px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-emoji-list-container .demo-icons-list.icons-size-64px li {
+  width: 84px;
+  height: 84px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-emoji-list-container .demo-icons-list.icons-size-64px li [data-provide~=emoji] svg {
+  width: 64px;
+  height: 64px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-emoji-list-container .demo-icons-list.icons-size-80px li {
+  width: 100px;
+  height: 100px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-emoji-list-container .demo-icons-list.icons-size-80px li [data-provide~=emoji] svg {
+  width: 80px;
+  height: 80px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-emoji-list-container .demo-icons-list.icons-size-96px li {
+  width: 116px;
+  height: 116px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-emoji-list-container .demo-icons-list.icons-size-96px li [data-provide~=emoji] svg {
+  width: 96px;
+  height: 96px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-color-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-color-list li {
+  display: -webkit-inline-box;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  margin: 20px;
+  margin-right: 0;
+  border: 1px solid #f1f2f3;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-color-list li > span {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  flex-basis: 100px;
+  min-height: 80px;
+  min-width: 160px;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-color-list p {
+  font-size: 12px;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  background-color: #fcfdfe;
+  border-top: 1px solid #f1f2f3;
+}
+
+/* line 1, /home/ns_sly/Desktop/workspace/efuelmanager/app/assets/stylesheets/_style.scss */
+.demo-tooltip-static .tooltip {
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+  margin-bottom: 15px;
+}

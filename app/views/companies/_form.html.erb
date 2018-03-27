@@ -1,0 +1,89 @@
+<%= form_with(model: company, local: true) do |form| %>
+  <% if company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+      <% company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="col-md-6 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Company Form</h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+            <ul class="dropdown-menu" role="menu">
+              
+            </ul>
+          </li>
+         
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br />
+        
+
+        <form class="form-horizontal form-label-left input_mask">
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <%= form.label :name, "Name"%>
+            <%= form.text_field :name, id: :company_name, class:"form-control has-feedback-left", type:"text", required:"required"%>
+            
+            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+                <%= form.label :phone, "Phone"%>
+              <%= form.number_field :phone, id: :company_phone, class:"form-control", type:"number", required:"required" %>
+
+            <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+          </div>
+
+
+   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+    <%= form.label :address, "Address" %>
+    
+    <%= form.text_field :address, id: :company_address,  class:"form-control has-feedback-left", type:"text", required:"required"%>
+  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+
+   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+    <%= form.label :state, "State" %>
+    
+    <%= form.text_field :state, id: :company_state,  class:"form-control has-feedback-left", type:"text", required:"required"%>
+  <span class="fa fa-map form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+                <%= form.label :city , "City"%>
+              <%= form.text_field :city, id: :company_city , class:"form-control", type:"text", required:"required" %>
+
+            <span class="fa fa-sitemap form-control-feedback right" aria-hidden="true"></span>
+          </div>
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+               <%= form.submit "Create Company", class:"btn btn-success"%>
+<% end %>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+    

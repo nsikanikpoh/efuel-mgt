@@ -1,0 +1,105 @@
+
+<%= form_for([@zone, @zone.zonalmanagers.build]) do |form| %>
+
+  <div class="row">
+  <div class="col-md-6 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>New Zonal Manager Form <small>zonal manager entry for <%=@zone.name%> </small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+          
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br />
+        <form class="form-horizontal form-label-left input_mask">
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <%= form.text_field :fname, id: :zonalmanager_fname, class:"form-control has-feedback-left", id:"inputSuccess2", placeholder:"First Name", type:"text", required:"required" %>
+           
+            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <%= form.text_field :lname, id: :zonalmanager_lname, class:"form-control", id:"inputSuccess3", placeholder:"Last Name", type:"text", required:"required" %>
+           
+            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <%= form.email_field :email, autofocus: true, autocomplete: "email", class:"form-control has-feedback-left", id:"inputSuccess4", placeholder:"Email", type:"email", required:"required"%>
+            <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+             <%= form.number_field :phone, id: :zonalmanager_phone, class:"form-control", id:"inputSuccess5", placeholder:"Phone", type:"number", required:"required" %>
+            
+            <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+          </div>
+
+         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+    <%= form.label :password, "Password" %>
+    
+    <%= form.password_field :password, autocomplete: "off",  class:"form-control has-feedback-left", placeholder:"Password", type:"password", required:"required"%>
+  <span class="fa fa-lock form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+
+
+
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+                <%= form.label :password_confirmation , "Confirm Password"%>
+              <%= form.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Confirm Password", type:"password", required:"required" %>
+
+            <span class="fa fa-lock form-control-feedback right" aria-hidden="true"></span>
+          </div>
+
+
+
+   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+    <%= form.label :address, "Address" %>
+    
+    <%= form.text_field :address, id: :zonalmanager_address,  class:"form-control has-feedback-left", placeholder:"Address", type:"text", required:"required"%>
+  <span class="fa fa-edit form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+
+   <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+    <%= form.label :state, "State" %>
+    
+    <%= form.text_field :state, id: :zonalmanager_state,  class:"form-control has-feedback-left", placeholder:"State", type:"text", required:"required"%>
+  <span class="fa fa-map form-control-feedback left" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            
+                <%= form.label :city , "City"%>
+              <%= form.text_field :city, id: :zonalmanager_city , class:"form-control", placeholder:"City", type:"text", required:"required" %>
+
+            <span class="fa fa-sitemap form-control-feedback right" aria-hidden="true"></span>
+          </div>
+
+
+         
+          <div class="form-group">
+            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                <%= form.submit "Submit", class:"btn btn-success"%>   <%= link_to "Cancel", zone_path(@zone),class:"btn btn-danger"%>
+
+
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+
+<% end %>

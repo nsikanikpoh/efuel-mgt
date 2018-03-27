@@ -1,0 +1,43 @@
+<% provide( :title, @stock_tank.stock.station.name+"- stock - "+@stock_tank.stock.description) %>
+
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+  <div class="x_panel" style="">
+      <div class="x_title">
+<h1>
+<%= @stock_tank.stock.product.name %> Stock Tank
+</h1>
+</div>
+<p>
+  <strong>Stock:</strong>
+  <%= @stock_tank.stock.description %>
+</p>
+
+<p>
+  <strong>Stock capacity:</strong>
+  <%= @stock_tank.stock_capacity %>
+</p>
+
+<p>
+  <strong>Sold capacity:</strong>
+  <%= @stock_tank.sold_capacity %>
+</p>
+
+<p>
+  <strong>Sold amount:</strong>
+  <%= @stock_tank.sold_amount %>
+</p>
+
+<p>
+  <strong>Cost price:</strong>
+  <%= @stock_tank.cost_price %>
+</p>
+
+
+<%= link_to 'Back to Stock', stock_path(@stock_tank.stock), class:"btn btn-success" %>
+<%= link_to "Back", :back, class:"btn btn-warning"%>
+
+</div>
+</div>
+</div>
