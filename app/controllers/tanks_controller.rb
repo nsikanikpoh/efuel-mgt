@@ -31,9 +31,9 @@ class TanksController < ApplicationController
   def create
      @pump = Pump.find(params[:pump_id])
     #@product = Product.find(params[@pump.product_id])
-    @product = @pump.product
+    #@product = current_product
 
-    @tank = @product.tanks.create(tank_params)
+    @tank = Tank.create(tank_params)
     @tank.pump_id=@pump.id
     @tank.pump = @pump
     #@tank.product_id=@pump.product.id
@@ -96,6 +96,6 @@ class TanksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tank_params
-      params.require(:tank).permit(:pump_id, :product_id, :total_capacity, :used_capacity, :free_capacity)
+      params.require(:tank).permit(:pump_id, :total_capacity, :used_capacity, :free_capacity)
     end
 end

@@ -2,7 +2,7 @@ class Tank < ApplicationRecord
   #belongs_to :station
   
   belongs_to :pump, foreign_key: :pump_id
-  belongs_to :product
+
 
 
     extend FriendlyId

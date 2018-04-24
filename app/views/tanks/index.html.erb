@@ -17,8 +17,8 @@
   <tbody>
     <% @tanks.each do |tank| %>
       <tr>
-        <td><%= tank.product.station.name %></td>
-        <td><%= tank.product.name %></td>
+        <td><%= tank.pump.product.station.name %></td>
+        <td><%= tank.pump.product.name %></td>
         <td><%= tank.total_capacity %></td>
         <td><%= tank.used_capacity %></td>
         <td><%= tank.free_capacity %></td>
