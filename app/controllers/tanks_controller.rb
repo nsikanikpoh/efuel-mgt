@@ -10,7 +10,7 @@ class TanksController < ApplicationController
   # GET /tanks/1
   # GET /tanks/1.json
   def show
-     @station = Station.find(@tank.product.station_id)
+    # @station = Station.find(@tank.pump.product.station_id)
     
   end
 
