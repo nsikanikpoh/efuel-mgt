@@ -298,7 +298,7 @@ There are no product categories added to this station yet.
     <% @tanks.each do |tank| %>
       <tr>
        
-        <td><%= tank.product.name %></td>
+        <td><%= tank.pump.product.name %></td>
         <td><%= tank.pump.name %></td>
         <td><%= tank.total_capacity %></td>
         <td><%= tank.used_capacity %></td>
