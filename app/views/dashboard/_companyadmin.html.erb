@@ -74,52 +74,6 @@
 
 
 <div class="col-md-9 col-sm-9 col-xs-12">
-<%if @sales_reports.any?%>
-
- <center><strong><h2>Visualization | Anormally in Reports</h2></strong></center>
-
-
-
-  <div class="col-xs-6">
-    <h5>Track Remark</h5>
-    <h5>Downward slope depicts shortages in reports, straight Level curve depicts Normal Flow, upward rising curve depicts excesses.</h5>
-    <%= line_chart @sales_reports.group_by_day(:remark).count %>
-
-  </div>
-
-  <div class="col-xs-6">
-    <h5>Sales Report By Remark Percentage</h5>
-    <h5>Percentage depicts .</h5>
-    <%= pie_chart @sales_reports.group_by_day(:remark).count%>
-  </div>
-
-
-  <div class="col-xs-6">
-    <h5>Area Chart</h5>
-    <h5>Downward slope depicts shortages in reports, straight Level curve depicts Normal Flow, upward rising curve depicts excesses.</h5>
-    <%= area_chart @sales_reports.group_by_day(:remark).count%>
-  </div>
-
-
-  <div class="col-xs-6">
-    <h5>Column Chart</h5>
-    <%= column_chart @sales_reports.group_by_day(:remark).count %>
-  </div>
-  <div class="col-xs-6">
-    <h5>Column Chart</h5>
-    <%= column_chart @sales_reports.group_by_day(:remark).count %>
-  </div>
-  <div class="col-xs-6">
-    <h5>Bar Chart</h5>
-    <%= bar_chart @sales_reports.group_by_day(:remark).count%>
-  </div>
-  <div class="col-xs-6">
-    <h5>Bar Chart</h5>
-    <%= bar_chart @sales_reports.group_by_day(:remark).count%>
-  </div>
-<%else%>
-<center><p class="lead">We are sorry, we could't project visualizations at the moment. Should be you have no Reports Entered yet.</p></center> 
-<%end%>
 
 
 </div>

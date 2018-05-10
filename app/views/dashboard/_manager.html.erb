@@ -9,43 +9,7 @@
   Station Manager Dashboard
 </h3>
 </div>
-<%if @stationsales_reports.any?%>
-<div class="row">
 
-
-
-  <div class="col-xs-6">
-    <h5>Visualization | Anormally in Reports</h5>
-    <h5>This depicts that amount brought forward from each sales reports correlates negatively with estimated amounts(money shortage). If the points depicts how many reports have this patterns</h5>
-    <%= line_chart @stationsales_reports.group_by_day(:remark).count, discrete: true %>
-
-  </div>
-
-  <div class="col-xs-6">
-    <h5>Sales Report By Remark Percentage</h5>
-    <%= pie_chart @stationsales_reports.group_by_day(:remark).count%>
-  </div>
-
-
-  <div class="col-xs-6">
-    <h5>Area Chart</h5>
-    <%= area_chart @stationsales_reports.group_by_day(:sold_capacity).count, discrete: true %>
-  </div>
-
-
-  <div class="col-xs-6">
-    <h5>Column Chart</h5>
-    <%= column_chart @stationsales_reports.group_by_day(:sold_capacity).count, discrete: true %>
-  </div>
-  <div class="col-xs-6">
-    <h5>Bar Chart</h5>
-    <%= bar_chart @stationsales_reports.group_by_day(:sold_capacity).count, discrete: true %>
-  </div>
-
-
-<%else%>
-<center><p class="lead">We are sorry, we could't project visualizations at the moment. Should be you have no Reports Entered yet.</p></center> 
-<%end%>
 
 
 <div class="clearfix"></div>
