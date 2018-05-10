@@ -11,11 +11,7 @@
 </div>
 <%if @stationsales_reports.any?%>
 <div class="row">
-<div class="col-xs-6">
-    <h5>Sales Report | Products Line Grapgh</h5>
-    <%= line_chart @stationsales_reports.group_by_day(:product_id).count %>
 
-  </div>
 
 
   <div class="col-xs-6">
