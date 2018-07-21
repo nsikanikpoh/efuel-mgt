@@ -8,14 +8,7 @@ class Company < ApplicationRecord
 	has_many :stocks, :through => :stations
 	has_many :pumps, :through => :stations
 	has_many :sales_reports, :through => :stations
-
-
-
-
-
-
-
-
+  
 	 extend FriendlyId
   
     friendly_id :aliass, use: [:slugged, :history, :finders]
